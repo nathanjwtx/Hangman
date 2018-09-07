@@ -1,14 +1,39 @@
 const HangmanGame = function (word, guesses) {
-    this.word = word
-    this.guesses = guesses
+    // removes spaces from the word before adding letters to the array
+    // var re = /\s*/
+    this.letters = word.toLowerCase().split('')
+    this.guessedLetters = []
+    this.guess = []
+    this.guessesLeft = guesses
 }
 
-Person.prototype.getBio = function () {
-    return `${this.firstName} is ${this.age}`
+
+HangmanGame.prototype.GetPuzzle = function (letter) {
+    // create array of '*' on first guess
+    if (this.guessedLetters.length === 0) {
+        this.letters.forEach(letter => {
+            letter === ' ' ? this.guess.push(' ') : this.guess.push('*')
+        })
+    }
+    // console.log(this.guess)
+    // Add used letters to guessedLetters array
+    this.guessedLetters.push(letter)
+    
+    for (i = 0; i < this.letters.length; i++) {
+        if (this.guess[i] === '*' && letter === this.letters[i]) {
+            this.guess[i] = letter
+        }
+    }
+    console.log(this.guess.join(''))
 }
 
-const newGame = new HangmanGame('tree', 2)
-console.log(newGame.getBio())
-
-const newGame2 = new HangmanGame('wibble', 3)
-console.log(newGame2.getBio())
+const newGame = new HangmanGame('TREE HOUSE', 2)
+console.log(newGame.letters)
+newGame.GetPuzzle('t')
+console.log(newGame.guessedLetters)
+newGame.GetPuzzle('a')
+console.log(newGame.guessedLetters)
+newGame.GetPuzzle('e')
+console.log(newGame.guessedLetters)
+newGame.GetPuzzle('h')
+console.log(newGame.guessedLetters)
