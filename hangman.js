@@ -15,7 +15,6 @@ HangmanGame.prototype.GetPuzzle = function (letter) {
             letter === ' ' ? this.guess.push(' ') : this.guess.push('*')
         })
     }
-    // console.log(this.guess)
     // Add used letters to guessedLetters array
     this.guessedLetters.push(letter)
     
