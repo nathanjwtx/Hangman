@@ -5,6 +5,7 @@ const HangmanGame = function (word, guesses) {
     this.guessedLetters = []
     this.guess = []
     this.guessesLeft = guesses
+    this.word = word
 }
 
 
@@ -15,6 +16,7 @@ HangmanGame.prototype.GetPuzzle = function () {
             l === ' ' ? this.guess.push(' ') : this.guess.push('*')
         })
     }
+    console.log('getpuzzle')    
 }
 
 HangmanGame.prototype.MakeGuess = function (letter) {
@@ -34,15 +36,7 @@ HangmanGame.prototype.MakeGuess = function (letter) {
             this.guess[i] = letter.toLowerCase()
         }
     }
-    console.log(this.guess.join(''))
+    // console.log(this.guess.join(''))
     console.log(`Guesses remaining: ${this.guessesLeft}`)
+    return this.guess.join('')
 }
-
-const newGame = new HangmanGame('TREE HOUSE', 2)
-newGame.GetPuzzle()
-
-window.addEventListener('keypress', function (e) {
-    const guess = String.fromCharCode(e.charCode)
-    newGame.MakeGuess(guess)
-})
-
