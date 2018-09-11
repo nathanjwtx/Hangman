@@ -49,6 +49,7 @@ HangmanGame.prototype.MakeGuess = function (letter) {
     }
     // console.log(this.guess.join(''))
     console.log(`Guesses remaining: ${this.guessesLeft}`)
-    this.updateStatus()
-    return this.guess.join('')
+    var result = this.guess.join('')
+    this.updateStatus(result)
+    return result
 }
