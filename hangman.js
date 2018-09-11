@@ -40,9 +40,7 @@ HangmanGame.prototype.GetPuzzle = function () {
 
 // alternative solution using array.every
 HangmanGame.prototype.updateStatus = function () {
-    const finished = this.letters.every((letter) => { 
-        return this.guessedLetters.includes(letter)
-    })
+    const finished = this.letters.every((letter) => this.guessedLetters.includes(letter))
 
     if (this.guessesLeft === 0) {
         this.status = 'Failed'
