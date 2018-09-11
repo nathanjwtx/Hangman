@@ -21,11 +21,35 @@ HangmanGame.prototype.GetPuzzle = function () {
     this.updateStatus() 
 }
 
-HangmanGame.prototype.updateStatus = function (guess) {
-    if (this.guessesLeft > 0 && guess === this.word) {
-        this.status = 'Finished'
-    } else if (this.guessesLeft === 0) {
+// HangmanGame.prototype.updateStatus = function (guess) {
+//     // alternative methods. These don't need the 'guess' arguement: 
+//     // 1. use a for each loop to check each in word against geussed letters using 'include'
+//     // 2. create a callback function 
+//     // const lettersUnguessed = this.word.filter((letter) => {
+//     //     return !this.guessedLetters.includes(letter)
+//     // })
+//     // const finished = lettersUnguessed.length === 0
+
+//     if (this.guessesLeft > 0 && guess === this.word) {
+//         this.status = 'Finished'
+//     } else if (this.guessesLeft === 0) {
+//         this.status = 'Failed'
+//     }
+//     console.log(this.status)
+// }
+
+// alternative solution using array.every
+HangmanGame.prototype.updateStatus = function () {
+    const finished = this.letters.every((letter) => { 
+        return this.guessedLetters.includes(letter)
+    })
+
+    if (this.guessesLeft === 0) {
         this.status = 'Failed'
+    } else if (finished) {
+        this.status = 'Finished'
+    } else {
+        this.status = 'playing'
     }
     console.log(this.status)
 }
