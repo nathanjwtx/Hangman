@@ -17,7 +17,7 @@ HangmanGame.prototype.GetPuzzle = function () {
             l === ' ' ? this.guess.push(' ') : this.guess.push('*')
         })
     }
-    console.log('getpuzzle')   
+    // console.log('getpuzzle')   
     this.updateStatus() 
 }
 
@@ -41,15 +41,31 @@ HangmanGame.prototype.GetPuzzle = function () {
 // alternative solution using array.every
 HangmanGame.prototype.updateStatus = function () {
     const finished = this.letters.every((letter) => this.guessedLetters.includes(letter))
-
-    if (this.guessesLeft === 0) {
+    // console.log(`Guesses: ${this.guessesLeft}`)
+    if (this.guessesLeft <= 0) {
         this.status = 'Failed'
     } else if (finished) {
         this.status = 'Finished'
     } else {
         this.status = 'playing'
     }
-    console.log(this.status)
+    // console.log(`Status: ${this.status}`)
+}
+
+HangmanGame.prototype.getStatusMessage = function () {
+    var statusString
+    switch (newGame.status) {
+        case 'playing':
+            statusString = `Guesses left: ${newGame.guessesLeft}`
+            break;
+        case 'Finished':
+            statusString = `Congratulations! You guessed the word.`
+            break
+        default:
+            statusString = `Sorry, the word was "${newGame.word}". Better luck next time!`
+            break;
+    }
+    return statusString
 }
 
 HangmanGame.prototype.MakeGuess = function (letter) {
@@ -70,7 +86,7 @@ HangmanGame.prototype.MakeGuess = function (letter) {
         }
     }
     // console.log(this.guess.join(''))
-    console.log(`Guesses remaining: ${this.guessesLeft}`)
+    // console.log(`Guesses remaining: ${this.guessesLeft}`)
     var result = this.guess.join('')
     this.updateStatus(result)
     return result
