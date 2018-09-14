@@ -1,5 +1,5 @@
 const newGame = new HangmanGame('TREE', 2)
-newGame.GetPuzzle()
+newGame.GetPuzzle
 
 window.addEventListener('keypress', function (e) {
     // debugger
@@ -22,5 +22,5 @@ const generateDOM = (guess) => {
     guessText.appendChild(newPara)
 
     document.querySelector('#guess').appendChild(guessText)
-    document.querySelector('#status').textContent = newGame.getStatusMessage()
+    document.querySelector('#status').textContent = newGame.getStatusMessage
 }

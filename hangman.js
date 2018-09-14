@@ -9,7 +9,7 @@ class HangmanGame {
         this.word = word.toLowerCase()
         this.status = 'playing'
     }
-    GetPuzzle () {
+    get GetPuzzle () {
         // create array of '*' on first guess
         if (this.guessedLetters.length === 0) {
             this.letters.forEach(l => {
@@ -29,7 +29,7 @@ class HangmanGame {
             this.status = 'playing'
         }
     }
-    getStatusMessage () {
+    get getStatusMessage () {
         var statusString
         switch (newGame.status) {
             case 'playing':
