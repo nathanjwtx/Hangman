@@ -24,6 +24,8 @@ class HangmanGame {
         this.updateStatus() 
     }
     updateStatus () {
+        // alternative to adding the ' ' in GetPuzzle
+        // const finished = this.letters.every((letter) => this.guessedLetters.includes(letter) || letter === ' )
         const finished = this.letters.every((letter) => this.guessedLetters.includes(letter))
         // console.log(`Guesses: ${this.guessesLeft}`)
         if (this.guessesLeft <= 0) {
