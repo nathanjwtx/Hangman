@@ -13,7 +13,12 @@ class HangmanGame {
         // create array of '*' on first guess
         if (this.guessedLetters.length === 0) {
             this.letters.forEach(l => {
-                l === ' ' ? this.guess.push(' ') : this.guess.push('*')
+                if (l === ' ') {
+                    this.guess.push(' ')
+                    this.guessedLetters.push(' ')
+                } else {
+                    this.guess.push('*')
+                }
             })
         }
         this.updateStatus() 

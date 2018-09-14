@@ -1,4 +1,4 @@
-const newGame = new HangmanGame('TREE', 2)
+const newGame = new HangmanGame('TREE HOUSE', 2)
 newGame.GetPuzzle
 
 window.addEventListener('keypress', function (e) {
