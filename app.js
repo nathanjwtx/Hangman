@@ -1,7 +1,7 @@
 const newGame = new HangmanGame('TREE HOUSE', 2)
 newGame.GetPuzzle
 
-window.addEventListener('keypress', function (e) {
+window.addEventListener('keypress', (e) => {
     // debugger
     if (newGame.status === 'playing') {
         const guess = String.fromCharCode(e.charCode)
