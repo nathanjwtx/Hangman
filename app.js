@@ -1,26 +1,33 @@
-const newGame = new HangmanGame('TREE HOUSE', 2)
-newGame.GetPuzzle
+const newGame = new HangmanGame('TREE HOUSE', 2);
+newGame.GetPuzzle;
 
 window.addEventListener('keypress', (e) => {
     // debugger
     if (newGame.status === 'playing') {
-        const guess = String.fromCharCode(e.charCode)
+        const guess = String.fromCharCode(e.charCode);
         // console.log(newGame.letters)
-        generateDOM(newGame.MakeGuess(guess))   
+        generateDOM(newGame.MakeGuess(guess))   ;
     }
-    
-})
+});
 
 const generateDOM = (guess) => {
-    const guessRoot = document.createElement('div')
-    const guessText = document.createElement('span')
-    const newPara = document.createElement('p')
+    const guessRoot = document.createElement('div');
+    const guessText = document.createElement('span');
+    const newPara = document.createElement('p');
     // console.log(guess)
 
-    guessText.textContent = guess
-    guessRoot.appendChild(guessText)
-    guessText.appendChild(newPara)
+    guessText.textContent = guess;
+    guessRoot.appendChild(guessText);
+    guessText.appendChild(newPara);
 
-    document.querySelector('#guess').appendChild(guessText)
-    document.querySelector('#status').textContent = newGame.getStatusMessage
-}
+    document.querySelector('#guess').appendChild(guessText);
+    document.querySelector('#status').textContent = newGame.getStatusMessage;
+};
+
+getPuzzle((puzzle, error) => {
+    if (error) {
+        console.log(`Error: ${error}`);
+    } else {
+        console.log(puzzle);
+    };
+});
