@@ -1,4 +1,4 @@
-const getPuzzle = (callback) => {
+const getPuzzle = (callback) => { // eslint-disable-line no-unused-vars
     const request = new XMLHttpRequest();
 
     request.addEventListener('readystatechange', (e) => {
