@@ -1,3 +1,5 @@
+/*global getPuzzle, HangmanGame */
+
 const newGame = new HangmanGame('TREE HOUSE', 2);
 newGame.GetPuzzle;
 
@@ -29,5 +31,5 @@ getPuzzle((puzzle, error) => {
         console.log(`Error: ${error}`);
     } else {
         console.log(puzzle);
-    };
+    }
 });
