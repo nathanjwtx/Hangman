@@ -1,4 +1,4 @@
-const getPuzzle = (callback) => { // eslint-disable-line no-unused-vars
+const getPuzzle = (value, callback) => { // eslint-disable-line no-unused-vars
     const request = new XMLHttpRequest();
 
     request.addEventListener('readystatechange', (e) => {
@@ -11,6 +11,6 @@ const getPuzzle = (callback) => { // eslint-disable-line no-unused-vars
     });
     
     // to specify a specific number of words put ?wordCount= on the end of the url
-    request.open('GET', 'http://puzzle.mead.io/puzzle');
+    request.open('GET', `http://puzzle.mead.io/puzzle?wordCount=${value}`);
     request.send();
 };

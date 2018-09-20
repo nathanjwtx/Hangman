@@ -26,7 +26,7 @@ const generateDOM = (guess) => {
     document.querySelector('#status').textContent = newGame.getStatusMessage;
 };
 
-getPuzzle((puzzle, error) => {
+getPuzzle('3', (puzzle, error) => {
     if (error) {
         console.log(`Error: ${error}`);
     } else {
