@@ -26,10 +26,17 @@ const generateDOM = (guess) => {
     document.querySelector('#status').textContent = newGame.getStatusMessage;
 };
 
-getPuzzle('3', (puzzle, error) => {
-    if (error) {
-        console.log(`Error: ${error}`);
-    } else {
-        console.log(puzzle);
-    }
+// call getPuzzle XMLHTTPRequest version
+// getPuzzle('3', (puzzle, error) => {
+//     if (error) {
+//         console.log(`Error: ${error}`);
+//     } else {
+//         console.log(puzzle);
+//     }
+// });
+
+getPuzzle(3).then((puzzle) => {
+    console.log(puzzle);
+}).catch((err) => {
+    console.log(err);
 });
