@@ -16,7 +16,19 @@
 //     request.send();
 // };
 
-const getPuzzle = (wordCount) => {
+// using async/await
+const getPuzzle = async (wordCount) => {
+    const response = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`);
+    if (response.status === 200) {
+        const data = await response.json();
+        return data.puzzle;
+    } else {
+        throw new Error("Unable to get puzzle");
+    }
+};
+
+// using promises/then
+const getPuzzleOld = (wordCount) => {
     return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`).then((response) => {
         if (response.status === 200) {
             return response.json();
@@ -25,5 +37,7 @@ const getPuzzle = (wordCount) => {
         }
     }).then((data) => {
         return data.puzzle;
+    }).catch((error) => {
+        console.log(error);
     });
 };

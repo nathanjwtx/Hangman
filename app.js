@@ -35,8 +35,8 @@ const generateDOM = (guess) => {
 //     }
 // });
 
-getPuzzle(3).then((puzzle) => {
-    console.log(puzzle);
+getPuzzle(3).then((data) => {
+    console.log(data);
 }).catch((err) => {
     console.log(err);
 });
