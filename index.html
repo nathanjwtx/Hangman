@@ -2,17 +2,19 @@
 
 <html>
     <head>
+        <title>Hangman</title>
         <link rel="stylesheet" href="./styles/hangman_styles.css">
+        <link rel="icon" href="./images/favicon.png">
     </head>
-    <h1>Hangman</h1>
+    <!-- <h1 id="header">
+        Hangman
+    </h1> -->
     <body>
         <div>
-            <p id='status'></p>
+            <p id='guess'></p>
+            <div id='status' class="puzzle"></div>
+            <button id="reset" class="button">Reset</button>
         </div>
-        <div>
-            <p id='guess' class="warning"></p>
-        </div>
-        <button id="reset" class="warning">Reset</button>
         <script src="./scripts/requests.js"></script>
         <script src="./scripts/hangman.js"></script>
         <script src="./scripts/app.js"></script>

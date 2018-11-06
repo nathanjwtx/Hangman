@@ -36,9 +36,15 @@ const generateDOM = (guess) => {
 // });
 
 const render = () => {
+    let guessEl = document.querySelector("#guess");
     document.querySelector('#status').textContent = newGame.getStatusMessage;
-    document.querySelector("#guess").textContent = newGame.DisplayGuess;
-    
+    // document.querySelector("#guess").textContent = newGame.DisplayGuess;
+    guessEl.innerHTML = "";
+    newGame.guess.forEach(letter => {
+        const letterEl = document.createElement("span");
+        letterEl.textContent = letter;
+        guessEl.append(letterEl);
+    });
 }
 
 const startGame = async function () {
