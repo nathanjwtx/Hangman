@@ -8,12 +8,22 @@
      font-size: 62.5%;
 }
 
+ h1 {
+     color: cadetblue;
+     border-bottom-color: #fafafa;
+     border-style: groove;
+     font-style: italic;
+     margin: 50px;
+     padding: 50px;
+     text-align: center;
+ }
+
  body {
      background: #2B292E;
      color: #fafafa;
      font-family: Helvetica, Arial, sans-serif;
      font-size: 1.6rem;
-     display: flex;
+     /* display: flex; */
      align-items: center;
      justify-content: center;
      min-height: 100vh;
@@ -21,7 +31,9 @@
 
  span {
      border-bottom: 1px solid #534f59;
-     display: inline-block;
+     /* display: inline-block; */
+     display: flex;
+     align-items: center;
      font-size: 2rem;
      height: 2.4rem;
      line-height: 2.4rem;
@@ -31,19 +43,24 @@
      width: 2.4rem;
 }
 
+div {
+     display: block;
+     /* display: inline-block; */
+     align-items: center;
+     text-align: center;
+}
+
  p {
      font-weight: 300;
      margin-bottom: .8rem;
-}
-
- #header {
-     color: aqua;
-     width: 300px;
+     display: flex;
+     align-items: center;
 }
 
  .puzzle {
      display: flex;
      margin-bottom: 4.8rem;
+     align-items: center;
 }
 
  .button {
