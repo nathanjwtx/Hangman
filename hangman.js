@@ -72,5 +72,9 @@ class HangmanGame {
         this.updateStatus(result)
         return result
     }
+
+    get DisplayGuess () {
+        return this.guess.join("");
+    }
 }
 

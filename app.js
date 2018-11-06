@@ -1,14 +1,13 @@
 /*global getPuzzle, HangmanGame */
 
-const newGame = new HangmanGame('TREE HOUSE', 2);
-newGame.GetPuzzle;
+let newGame;
 
 window.addEventListener('keypress', (e) => {
     // debugger
     if (newGame.status === 'playing') {
         const guess = String.fromCharCode(e.charCode);
         // console.log(newGame.letters)
-        generateDOM(newGame.MakeGuess(guess))   ;
+        generateDOM(newGame.MakeGuess(guess));
     }
 });
 
@@ -22,8 +21,9 @@ const generateDOM = (guess) => {
     guessRoot.appendChild(guessText);
     guessText.appendChild(newPara);
 
-    document.querySelector('#guess').appendChild(guessText);
-    document.querySelector('#status').textContent = newGame.getStatusMessage;
+    // document.querySelector('#guess').appendChild(guessText);
+    // document.querySelector('#status').textContent = newGame.getStatusMessage;
+    render();
 };
 
 // call getPuzzle XMLHTTPRequest version
@@ -35,8 +35,19 @@ const generateDOM = (guess) => {
 //     }
 // });
 
-getPuzzle(3).then((data) => {
-    console.log(data);
-}).catch((err) => {
-    console.log(err);
-});
+const render = () => {
+    document.querySelector('#status').textContent = newGame.getStatusMessage;
+    document.querySelector("#guess").textContent = newGame.DisplayGuess;
+    
+}
+
+const startGame = async function () {
+    const newPuzzle = await getPuzzleFromWeb("3");
+    newGame = new HangmanGame(newPuzzle, 5);
+    newGame.GetPuzzle;
+    render();
+}
+
+document.querySelector("#reset").addEventListener("click", startGame);
+
+startGame();
