@@ -18,8 +18,8 @@ const generateDOM = (guess) => {
     // console.log(guess)
 
     guessText.textContent = guess;
-    guessRoot.appendChild(guessText);
     guessText.appendChild(newPara);
+    guessRoot.appendChild(guessText);
 
     // document.querySelector('#guess').appendChild(guessText);
     // document.querySelector('#status').textContent = newGame.getStatusMessage;

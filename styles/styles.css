@@ -1,0 +1,12 @@
+/* p is a universal select for all paragraphs
+use the # followed by tag id to select a specific tag,
+. by class id.
+Can create comma seperated list*/
+#guess, button {
+    color: red;
+}
+
+/* .warning {
+    color: white;
+    background-color: blue;
+} */
